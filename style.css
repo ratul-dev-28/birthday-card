@@ -1,0 +1,711 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: #0f172a;
+    color: #ffffff;
+    position: relative;
+}
+
+/* =========================
+   VARIABLES
+========================= */
+
+:root {
+
+    --primary: #ff4d8d;
+    --secondary: #8b5cf6;
+    --accent: #ffd166;
+
+    --dark: #0f172a;
+    --dark-light: #1e293b;
+
+    --white: #ffffff;
+    --text-light: #d6d6d6;
+
+    --glass: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.12);
+
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+    --radius-lg: 28px;
+    --radius-md: 20px;
+    --radius-sm: 14px;
+
+    --transition: 0.35s ease;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.bg-gradient {
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(circle at top left,
+            rgba(255, 77, 141, 0.25),
+            transparent 30%),
+
+        radial-gradient(circle at bottom right,
+            rgba(139, 92, 246, 0.25),
+            transparent 30%),
+
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #111827,
+            #1e293b
+        );
+
+    z-index: -3;
+}
+
+.stars {
+    position: fixed;
+    inset: 0;
+
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, white, transparent),
+        radial-gradient(2px 2px at 80px 120px, white, transparent),
+        radial-gradient(1px 1px at 150px 90px, white, transparent),
+        radial-gradient(2px 2px at 250px 50px, white, transparent);
+
+    background-size: 300px 300px;
+
+    opacity: 0.15;
+
+    animation: starsMove 60s linear infinite;
+
+    z-index: -2;
+}
+
+@keyframes starsMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-300px);
+    }
+}
+
+/* =========================
+   GLASS EFFECT
+========================= */
+
+.glass-card {
+
+    background: var(--glass);
+
+    backdrop-filter: blur(14px);
+
+    border: 1px solid var(--glass-border);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow);
+}
+
+/* =========================
+   FLOATING EMOJIS
+========================= */
+
+.floating {
+    position: fixed;
+
+    font-size: 2rem;
+
+    opacity: 0.75;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    animation: float 5s ease-in-out infinite;
+}
+
+.floating-1 {
+    top: 12%;
+    left: 5%;
+}
+
+.floating-2 {
+    top: 24%;
+    right: 8%;
+    animation-delay: 1s;
+}
+
+.floating-3 {
+    bottom: 18%;
+    left: 10%;
+    animation-delay: 2s;
+}
+
+.floating-4 {
+    bottom: 10%;
+    right: 10%;
+    animation-delay: 3s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-18px);
+    }
+}
+
+/* =========================
+   UTILITIES
+========================= */
+
+.hidden {
+    display: none !important;
+}
+
+.tag {
+
+    display: inline-block;
+
+    padding: 10px 18px;
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: var(--accent);
+
+    font-size: 0.95rem;
+
+    margin-bottom: 1.4rem;
+
+    letter-spacing: 0.5px;
+}
+
+/* =========================
+   COUNTDOWN SCREEN
+========================= */
+
+.countdown-screen {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 2rem;
+}
+
+.countdown-card {
+
+    width: 100%;
+
+    max-width: 950px;
+
+    padding: 4rem 3rem;
+
+    text-align: center;
+}
+
+.main-title {
+
+    font-family: "Sour Gummy", cursive;
+
+    font-size: 5rem;
+
+    line-height: 1.1;
+
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+
+    color: var(--text-light);
+
+    font-size: 1.1rem;
+
+    margin-bottom: 3rem;
+
+    line-height: 1.7;
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 1.5rem;
+}
+
+.time-box {
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border-radius: var(--radius-md);
+
+    padding: 2rem 1rem;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    transition: var(--transition);
+}
+
+.time-box:hover {
+
+    transform: translateY(-6px);
+
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.time-box span {
+
+    display: block;
+
+    font-size: 3rem;
+
+    font-weight: 700;
+
+    color: var(--accent);
+
+    margin-bottom: 0.5rem;
+}
+
+.time-box small {
+
+    color: var(--text-light);
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    font-size: 0.8rem;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+
+    min-height: 65vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 2rem;
+}
+
+.hero-content {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    text-align: center;
+
+    padding: 4rem 3rem;
+}
+
+.hero-title {
+
+    font-family: "Sour Gummy", cursive;
+
+    font-size: 5.5rem;
+
+    line-height: 1.1;
+
+    margin-bottom: 1rem;
+}
+
+.hero-title span {
+
+    display: block;
+
+    color: var(--accent);
+}
+
+.hero-subtitle {
+
+    font-size: 1.2rem;
+
+    color: var(--text-light);
+
+    max-width: 650px;
+
+    margin: auto;
+
+    line-height: 1.8;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section {
+
+    padding: 40px 20px 100px;
+}
+
+.section-heading {
+
+    text-align: center;
+
+    margin-bottom: 3rem;
+}
+
+.section-heading h2 {
+
+    font-size: 3rem;
+
+    margin-bottom: 12px;
+}
+
+.section-heading p {
+
+    color: var(--text-light);
+
+    font-size: 1rem;
+}
+
+/* =========================
+   BIRTHDAY CARD
+========================= */
+
+.card-wrapper {
+
+    display: flex;
+
+    justify-content: center;
+}
+
+.birthday-card {
+
+    width: 360px;
+
+    min-height: 430px;
+
+    padding: 2.5rem;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+
+    user-select: none;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.birthday-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 77, 141, 0.18),
+            rgba(139, 92, 246, 0.18)
+        );
+
+    z-index: 0;
+}
+
+.birthday-card:hover {
+
+    transform: translateY(-8px) scale(1.02);
+}
+
+.card-content {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.wish-emoji {
+
+    font-size: 4rem;
+
+    display: block;
+
+    margin-bottom: 1rem;
+}
+
+.birthday-card h3 {
+
+    font-size: 2rem;
+
+    margin-bottom: 1rem;
+
+    color: var(--accent);
+}
+
+.birthday-card p {
+
+    font-size: 1rem;
+
+    line-height: 1.9;
+
+    color: var(--text-light);
+}
+
+/* =========================
+   DOT INDICATORS
+========================= */
+
+.wish-dots {
+
+    margin-top: 2rem;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.dot {
+
+    width: 12px;
+
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.25);
+
+    transition: var(--transition);
+}
+
+.dot.active {
+
+    background: var(--accent);
+
+    transform: scale(1.25);
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast {
+
+    position: fixed;
+
+    top: 30px;
+
+    left: 50%;
+
+    transform: translateX(-50%) translateY(-120px);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    padding: 16px 24px;
+
+    border-radius: 999px;
+
+    box-shadow: var(--shadow);
+
+    z-index: 9999;
+
+    transition: var(--transition);
+
+    font-weight: 500;
+}
+
+.toast.show {
+
+    transform: translateX(-50%) translateY(0);
+}
+
+/* =========================
+   CONFETTI CANVAS
+========================= */
+
+#confettiCanvas {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 999;
+
+    opacity: 1;
+}
+
+/* =========================
+   FADE IN ANIMATION
+========================= */
+
+.hero-content,
+.birthday-card,
+.section-heading,
+.wish-dots {
+
+    animation: fadeUp 1s ease;
+}
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 992px) {
+
+    .countdown {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .main-title {
+        font-size: 4rem;
+    }
+
+    .hero-title {
+        font-size: 4.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .countdown-card,
+    .hero-content {
+        padding: 3rem 2rem;
+    }
+
+    .main-title {
+        font-size: 3.2rem;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .section-heading h2 {
+        font-size: 2.3rem;
+    }
+
+    .birthday-card {
+        width: 320px;
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .subtitle,
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .countdown {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .time-box {
+        padding: 1.5rem 1rem;
+    }
+
+    .time-box span {
+        font-size: 2.2rem;
+    }
+
+    .birthday-card {
+
+        width: 100%;
+
+        min-height: 380px;
+
+        padding: 2rem;
+    }
+
+    .birthday-card h3 {
+        font-size: 1.6rem;
+    }
+
+    .birthday-card p {
+        font-size: 0.95rem;
+    }
+
+    .wish-emoji {
+        font-size: 3.2rem;
+    }
+
+    .floating {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Happy Birthday ✨</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Sour+Gummy:wght@400;700&display=swap"
+        rel="stylesheet"
+    >
+    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@100..900&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Favicon -->
+    <link
+        rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🎂</text></svg>"
+    >
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="bg-gradient"></div>
+    <div class="stars"></div>
+
+    <!-- Floating Emojis -->
+    <div class="floating floating-1">🎈</div>
+    <div class="floating floating-2">🎉</div>
+    <div class="floating floating-3">✨</div>
+    <div class="floating floating-4">🎂</div>
+
+    <!-- =========================
+         COUNTDOWN SCREEN
+    ========================== -->
+    <section class="countdown-screen" id="countdownScreen">
+
+        <div class="countdown-card glass-card">
+
+            <span class="tag">
+                🎉 Birthday Countdown
+            </span>
+
+            <h1 class="main-title">
+                Something Special Is Coming ✨
+            </h1>
+
+            <p class="subtitle">
+                Countdown to 24 May 2026 • 11:59:59 PM (Bangladesh Time)
+            </p>
+
+            <div class="countdown">
+
+                <div class="time-box">
+                    <span id="days">00</span>
+                    <small>Days</small>
+                </div>
+
+                <div class="time-box">
+                    <span id="hours">00</span>
+                    <small>Hours</small>
+                </div>
+
+                <div class="time-box">
+                    <span id="minutes">00</span>
+                    <small>Minutes</small>
+                </div>
+
+                <div class="time-box">
+                    <span id="seconds">00</span>
+                    <small>Seconds</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         BIRTHDAY CONTENT
+    ========================== -->
+    <main class="birthday-content hidden" id="birthdayContent">
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <div class="hero-content glass-card">
+
+                <span class="tag">
+                    💖 Happy Birthday
+                </span>
+
+                <h1 class="hero-title">
+                    Happy Birthday
+                    <span>ARUSHA</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    Wishing you happiness, laughter,
+                    love and unforgettable memories ✨
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- BIRTHDAY CARD -->
+        <section class="section">
+
+            <div class="section-heading">
+                <h2>Birthday Wishes 💌</h2>
+                <p>Tap the card to read the next wish.</p>
+            </div>
+
+            <div class="card-wrapper">
+
+                <div class="birthday-card glass-card" id="wishCard">
+
+                    <div class="card-content">
+
+                        <span class="wish-emoji">
+                            🎂
+                        </span>
+
+                        <h3 id="wishTitle">
+                            Wish from Sarah 💖
+                        </h3>
+
+                        <p id="wishMessage">
+                            Happy Birthday! May your life always stay bright,
+                            joyful and filled with beautiful surprises ✨
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Dots -->
+            <div class="wish-dots" id="wishDots">
+
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Confetti -->
+    <canvas id="confettiCanvas"></canvas>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+
+</body>
+</html>
